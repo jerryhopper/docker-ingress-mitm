@@ -3,6 +3,7 @@ FROM alpine:3.5
 ENV LANG=en_US.UTF-8
 
 COPY requirements.txt /tmp/requirements.txt
+COPY worker.py /home/worker.py
 
 # add our user first to make sure the ID get assigned consistently,
 # regardless of whatever dependencies get added
@@ -31,9 +32,8 @@ RUN addgroup -S mitmproxy && adduser -S -G mitmproxy mitmproxy \
 
 VOLUME /home/mitmproxy/.mitmproxy
 
-COPY docker-entrypoint.sh /usr/local/bin/
-COPY worker.py /home/worker.py
-ENTRYPOINT ["docker-entrypoint.sh"]
+#COPY docker-entrypoint.sh /usr/local/bin/
+#ENTRYPOINT ["docker-entrypoint.sh"]
 
 EXPOSE 8080
 CMD ["mitmdump -s /home/worker.py"]
