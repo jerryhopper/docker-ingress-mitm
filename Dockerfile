@@ -1,9 +1,9 @@
 FROM alpine:3.5
-
+MAINTAINER Botnyx, Inc. <hopper.jerry@gmail.com>
 ENV LANG=en_US.UTF-8
 
 COPY requirements.txt /tmp/requirements.txt
-COPY worker.py /home/worker.py
+ADD worker.py /home/worker.py
 
 # add our user first to make sure the ID get assigned consistently,
 # regardless of whatever dependencies get added
