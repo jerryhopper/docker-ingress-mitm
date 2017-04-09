@@ -3,7 +3,7 @@ MAINTAINER Botnyx, Inc. <hopper.jerry@gmail.com>
 ENV LANG=en_US.UTF-8
 
 COPY requirements.txt /tmp/requirements.txt
-ADD worker.py /home/worker.py
+ADD ./ingress-mitm /home/ingress-mitm
 
 # add our user first to make sure the ID get assigned consistently,
 # regardless of whatever dependencies get added
@@ -36,4 +36,4 @@ VOLUME /home/mitmproxy/.mitmproxy
 #ENTRYPOINT ["docker-entrypoint.sh"]
 
 EXPOSE 8080
-CMD ["mitmdump -s /home/worker.py"]
+CMD ["mitmdump -s /home/ingress-mitm/ingress-mitm.py"]
