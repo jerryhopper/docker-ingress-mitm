@@ -1,0 +1,6 @@
+git+https://github.com/mitmproxy/mitmproxy.git@master
+pymongo
+pymysql
+redis
+cassandra-driver
+pdo
