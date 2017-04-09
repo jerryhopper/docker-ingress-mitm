@@ -31,12 +31,9 @@ RUN addgroup -S mitmproxy && adduser -S -G mitmproxy mitmproxy \
 
 VOLUME /home/mitmproxy/.mitmproxy
 
-COPY mitm.py /home/mitm.py
-COPY mitm.py /srv/mitm.py
-
 COPY docker-entrypoint.sh /usr/local/bin/
-COPY mitm.py /usr/local/bin/
+COPY mitm.py /home/mitm.py
 ENTRYPOINT ["docker-entrypoint.sh"]
 
 EXPOSE 8080
-CMD ["mitmdump -s /usr/local/bin/mitm.py"]
+CMD ["mitmdump -s /home/mitm.py"]
