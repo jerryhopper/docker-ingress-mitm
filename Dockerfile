@@ -35,5 +35,8 @@ VOLUME /home/mitmproxy/.mitmproxy
 #COPY docker-entrypoint.sh /usr/local/bin/
 #ENTRYPOINT ["docker-entrypoint.sh"]
 
+COPY ./ingress-mitm /home/ingress-mitm/
+
+
 EXPOSE 8080
 CMD ["mitmdump -s /home/ingress-mitm/ingress-mitm.py"]
